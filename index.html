@@ -56,7 +56,7 @@
 	<script>
 		window.dog = 0;
 		window.catIndex = 0;
-		window.addEventListener('click', (event) => {
+		window.addEventListener('mousedown', (event) => {
 			var img = document.createElement('img');
 			img.width = 180;
 			img.style.position = 'fixed';
@@ -65,7 +65,7 @@
 
 			window.dog++;
 			if (window.dog % 5 == 0) {
-				img.src = 'dog.webp';
+				img.src = 'dog.png';
 				new Audio('woof.mp3').play();		
 			} else {
 				img.src = 'cat' + (++window.catIndex % 6) + '.png';		
@@ -76,14 +76,15 @@
 			var src = document.getElementById('page');
 			src.appendChild(img);
 		});
+
+		setTimeout(() => {
+			new Audio('song2.mp3').play();
+		}, 500);
 	</script>
 	<body>
 		<div id="page">
 			<img src="strut.gif" id="strut" />
 			<img src="head.png" id="head" />
-			<audio loop autoplay>
-				<source src="song2.mp3" type="audio/mpeg">
-			</audio>
 		</div>
 	</body>
 </html>
